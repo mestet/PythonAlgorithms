@@ -43,6 +43,9 @@ def almost_solution(k):
 
 
 def my_solution(k):
+    if k == 0 or k == 1:
+        print(k)
+        return
     for p in range(1, 100):
         a = k * ((10 ** (p + 1)) - 1)
         b = (k * 10 - 1)
