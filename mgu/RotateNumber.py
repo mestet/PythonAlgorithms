@@ -43,7 +43,7 @@ def almost_solution(k):
 
 
 def my_solution(k):
-    if k == 0 or k == 1:
+    if k < 2:
         print(k)
         return
     for p in range(1, 100):
@@ -55,4 +55,4 @@ def my_solution(k):
             break
 
 
-my_solution(int(input()))
+my_solution(int(input("Enter a digit: ")))
