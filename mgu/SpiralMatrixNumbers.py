@@ -49,13 +49,13 @@ def print_matrix(matrix):
         print(*row)
 
 
-def init_matrix(n, m):
+def init_matrix(columns, rows):
     matrix = []
-    for i in range(m):
-        row = [0] * n
+    for i in range(rows):
+        row = [0] * columns
         matrix += [row]
     return matrix
 
 
-n, m = eval(input())
-print_spiral_matrix(n, m)
+input_n, input_m = eval(input())
+print_spiral_matrix(input_n, input_m)
