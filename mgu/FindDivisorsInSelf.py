@@ -4,17 +4,18 @@
 # а в ответ функция возвращает количество цифр этого числа, являющихся её делителями.
 #
 # Примеры
-# 312345 -> 4
+# print(divdigit(312345)) -> 4
 # поскольку 312345 делится без остатка на 3, 1, 3, 5
 
 
-def find_divisors(input_number):
+def divdigit(input_number):
     number_digits = list(map(int, str(input_number)))
     count = 0
     for digit in number_digits:
-        if input_number % digit == 0:
+        if digit != 0 and input_number % digit == 0:
             count += 1
-    print(count)
+    return count
 
 
-find_divisors(int(input()))
+if __name__ == "__main__":
+    eval(input())
