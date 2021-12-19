@@ -21,8 +21,7 @@
 # 6
 
 def count_ships(input_matrix):
-    print(None)
-    count = 0
+    ship_count = 0
     for y in range(len(input_matrix)):
         line = input_matrix[y]
         end_x = len(line)
@@ -36,13 +35,13 @@ def count_ships(input_matrix):
                     x += 1
                     ch = line[x]
                 if y == 0:
-                    count += 1
+                    ship_count += 1
                 if y > 0:
                     prev_line = input_matrix[y - 1]
                     if prev_line[start_x] != '#':
-                        count += 1
+                        ship_count += 1
             x += 1
-    print("Counted: " + str(count))
+    return ship_count
 
 
 def read_input():
@@ -56,11 +55,5 @@ def read_input():
     return result
 
 
-def print_matrix(matrix):
-    for row in matrix:
-        print(*row)
-
-
-mt = read_input()
-print_matrix(mt)
-count_ships(mt)
+if __name__ == "__main__":
+    print(count_ships(read_input()))
