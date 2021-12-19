@@ -6,24 +6,23 @@
 #
 # Примеры
 # Входные данные
-# print(BinPow(2,33,int.mul), 2**33)
-# print(BinPow("Se", 7, str.add))
+# print(BinPow(2,33,int.__mul__), 2**33)
+# print(BinPow("Se", 7, str.__add__))
 # Результат работы
 # 8589934592 8589934592
 # SeSeSeSeSeSeSe
 
 
-def bin_pow(a, n, f):
+def BinPow(a, n, f):
     init = a
     for i in range(n - 1):
         a = f(a, init)
     return a
 
 
-print(bin_pow(2, 33, int.__mul__))
-print(bin_pow(11, 2, int.__mul__))
-print(bin_pow(256, 3, int.__sub__))
-print(bin_pow(256, 256, int.__add__))
-print(bin_pow("Se", 7, str.__add__))
-print(bin_pow("Wv", 1, str.__add__))
-print(bin_pow("Wv", 0, str.__add__))
+if __name__ == "__main__":
+    command = input()
+    while command.startswith("def"):
+        exec(command)
+        command = input()
+    eval(command)
