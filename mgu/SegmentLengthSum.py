@@ -14,30 +14,22 @@
 def segment_length_sum(segments):
     segments = sorted(list(segments))
     result_sum = 0
-    united_segments = []
-    while segments:
-        seg_a = segments.pop(0)
-        print("Popping " + str(seg_a))
-        j = 0
-        while j < len(segments):
+    limit = len(segments)
+    i = 0
+    while i < limit:
+        seg_a = segments[i]
+        for j in range(i + 1, limit):
             seg_b = segments[j]
             ax, ay = seg_a[0], seg_a[1]
             bx, by = seg_b[0], seg_b[1]
-            if bx <= ax <= by or ax <= bx <= ay:
-                print("Found pair for " + str(seg_a) + " -> " + str(seg_b))
+            i = j
+            if bx <= ay:
                 seg_a = (min(ax, bx), max(ay, by))
-                print("United pair: " + str(seg_a))
-                del segments[j]
             else:
-                j += 1
-        print("Adding united segment: " + str(seg_a))
-        united_segments += [seg_a]
-
-    print("United segments:")
-    print(united_segments)
-
-    for seg in united_segments:
-        result_sum += seg[1] - seg[0]
+                break
+        else:
+            i += 1
+        result_sum += seg_a[1] - seg_a[0]
 
     return result_sum
 
