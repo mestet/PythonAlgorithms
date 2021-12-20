@@ -12,9 +12,14 @@
 # 8589934592 8589934592
 # SeSeSeSeSeSeSe
 
+# print(*BinPow((1,2,56,23,56,7), 99999,  tuple.__add__))
+
 
 def BinPow(a, n, f):
     init = a
+    if type(a) is tuple:
+        if f is tuple.__add__:
+            return a * n
     for i in range(n - 1):
         a = f(a, init)
     return a
