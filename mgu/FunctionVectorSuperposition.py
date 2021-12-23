@@ -1,6 +1,3 @@
-from math import sin, cos
-
-
 # 'Вектор функций'
 #
 # Написать функцию superposition(funmod, funseq),
@@ -19,11 +16,18 @@ from math import sin, cos
 
 
 def superposition(funmod, funseq):
+    return [wrap_function(funmod, f) for f in funseq]
+
+
+def wrap_function(f: callable, g: callable):
     def inner(x):
-        return [funmod(f(x)) for f in funseq]
+        return f(g(x))
     return inner
 
 
 if __name__ == "__main__":
-    F = superposition(abs, (sin, cos))
-    print(F(-1)[0], F(-1)[1], F(2)[0], F(2)[1])
+    line = input()
+    while not line.startswith("print"):
+        exec(line)
+        line = input()
+    eval(line)
