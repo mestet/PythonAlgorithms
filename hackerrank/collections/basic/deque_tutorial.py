@@ -1,9 +1,9 @@
 from collections import deque
 
 
-def process(n=0):
+def process(amount=0):
     dq = deque()
-    for i in range(n):
+    for i in range(amount):
         words = input().split(' ')
         if len(words) == 1:
             eval(f'dq.{words[0]}()')

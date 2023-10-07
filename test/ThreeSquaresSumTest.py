@@ -1,9 +1,6 @@
 import time
 
 from mgu import ThreeSquaresSum
-from guppy import hpy
-
-h = hpy()
 
 
 def test():
@@ -21,7 +18,7 @@ def test():
         elapsed = (time.time_ns()) - ts
 
         tr = "passed" if act == tc[-1] else "failed"
-        print(f"Test {tr}. Took {elapsed} ns:\n{tc[0]}\n{act}\n{'='*120}")
+        print(f"Test {tr}. Took {elapsed} ns:\n{tc[0]}\n{act}\n{'=' * 120}")
 
 
 if __name__ == "__main__":
